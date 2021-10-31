@@ -45,8 +45,8 @@ class threadClass:
         global collection_name, free_status
         free_status = False
         collection_name = self.scrapper_object.getReviewsToDisplay(expected_review=self.expected_review,
-                                                                   searchString=self.searchString, username='Kavita',
-                                                                   password='kavita1610',
+                                                                   searchString=self.searchString, username='mongodb',
+                                                                   password='mongodb',
                                                                    review_count=self.review_count)
         logger.info("Thread run completed")
         free_status = True
@@ -68,7 +68,7 @@ def index():
             review_count = 0
             scrapper_object = FlipkratScrapper(executable_path=ChromeDriverManager().install(),
                                                chrome_options=chrome_options)
-            mongoClient = MongoDBManagement(username='Kavita', password='kavita1610')
+            mongoClient = MongoDBManagement(username='mongodb', password='mongodb')
             scrapper_object.openUrl("https://www.flipkart.com/")
             logger.info("Url hitted")
             scrapper_object.login_popup_handle()
